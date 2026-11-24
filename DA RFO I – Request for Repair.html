@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DA RFO I – Request for Repair</title>
+<style>
+:root{--bg:#f5f7f6;--card:#fff;--tx:#1d2b24;--mu:#5d6b64;--ln:#d8dfdb;--ac:#1f7a4d;--ac2:#e3f2ea;--wa:#b45309;--er:#b91c1c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121715;--card:#1b2320;--tx:#e6ece8;--mu:#9aa8a0;--ln:#2e3a35;--ac:#4cc38a;--ac2:#1d3328;--wa:#f0a04b;--er:#f87171;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 Cambria,Georgia,serif}
+header{padding:14px 16px;border-bottom:3px solid var(--ac);background:var(--card)}header h1{margin:0;font-size:19px}header small{color:var(--mu)}
+main{max-width:920px;margin:0 auto;padding:14px}
+.c{background:var(--card);border:1px solid var(--ln);border-radius:8px;padding:14px;margin-bottom:12px}
+button{font:inherit;border-radius:6px;padding:8px 16px;cursor:pointer;border:1px solid var(--ac)}button.p{background:var(--ac);color:#fff}button.s{background:none;color:var(--ac)}button:disabled{opacity:.5}
+input,select,textarea{width:100%;font:inherit;padding:8px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);color:var(--tx)}
+label{display:block;font-size:12px;color:var(--mu);margin:9px 0 2px}label i{color:var(--er);font-style:normal}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 14px}.w{grid-column:1/-1}
+.sp{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto}
+.sp button{flex:1;min-width:104px;text-align:left;border:1px solid var(--ln);background:var(--card);color:var(--mu);padding:8px 10px;line-height:1.25}
+.sp b{display:block;font-size:11px;letter-spacing:.04em}.sp span{font-size:13px;color:var(--tx)}
+.sp .on{border:2px solid var(--ac);background:var(--ac2)}.sp .ok{border-color:var(--ac)}.sp .ok b{color:var(--ac)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.top h2{margin:0;font-size:17px}.m{color:var(--mu);font-size:12px}
+.t{display:inline-block;padding:1px 9px;border-radius:10px;font-size:11px;background:var(--ac2);color:var(--ac)}.t.u{background:#fde2e2;color:var(--er)}.t.o{background:#fdecd2;color:var(--wa)}
+.tb{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:620px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--ln);font-size:13px}th{color:var(--mu);font-size:12px}tr.r{cursor:pointer}tr.r:hover{background:var(--ac2)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.tools>*{flex:1;min-width:130px}.tools button{flex:0 0 auto}
+.act{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.err{color:var(--er);font-size:13px;margin-top:8px}.ok2{color:var(--ac);font-size:13px;margin-top:8px}
+.pn{display:none}.pn.on{display:block}.pt{display:none;margin:0 0 6px;color:var(--ac)}
+@media print{header,.sp,.act,.top button,#msg{display:none}.pn{display:block!important}.pt{display:block}body{background:#fff;color:#000}.c{border-color:#999}}
+</style></head><body>
+<header><h1>Request for Repair</h1><small>DA RFO I · General Services Section · Building Maintenance Procedure 6.3 and 6.4</small></header>
+<main id="v"></main>
+<script>
+var SYS=["Interior","Structure & Masonry","Roofing","Exterior","Electrical","Plumbing / Water","Mechanical (A/C, Ventilation)","Fire Protection","ICT / PABX / Telecom"],
+YN=["","No","Yes"],
+S=[
+{n:"Request",t:"Stage 1 – Request for Repair",d:"Procedure 6.3 and 6.4.2 · filled in by the requester",f:[["fac","Facility / equipment for repair","x",1],["area","Building / area / room","x",1],["sys","System","s",[""].concat(SYS)],["src","Source of report","s",["Employee report","Checklist finding","Other"]],["srcn","Checklist date / item no. (if any)"],["safe","Does it affect safety or disrupt operations?","s",YN],["def","Defects / complaints","t",1],["who","Requested by (name)","x",1],["pos","Position"],["office","Office / unit"],["dReq","Date requested","date",1]]},
+{n:"Pre-repair",t:"Stage 2 – Pre-Repair Inspection and GSS Evaluation",d:"Procedure 6.4.1 and 6.4.5 · GSS Chief or designated staff and Inspection Committee",f:[["dRecv","Date received by GSS","date",1],["dPre","Pre-repair inspection date","date",1],["scope","Findings / extent of defect","t"],["work0","Nature and scope of work to be done","t"],["parts","Parts / materials to be supplied or replaced","t"],["prio","Priority","s",["","Regular","Urgent"],1],["mode","Repair to be done by","s",["","In-house (GSS personnel)","External provider (procurement)"],1],["tgt","Target completion date","date"],["tag","Unfit facility","s",["Not applicable","Tagged DO NOT USE","Tagged DO NOT ENTER","Tagged FOR REPAIR","Barricaded"]],["inf","Users informed on","date"],["alt","Alternative arrangement"],["lastd","Date of last repair","date"],["lastn","Nature of last repair"],["preBy","Pre-inspected by (Member, Inspection Committee)","x",1],["noteBy","Noted by (Chief, General Services Section)"]]},
+{n:"Repair",t:"Stage 3 – Repair / Job Order",d:"Procedure 6.4.2 to 6.4.4 · GSS, Procurement / Supply Unit",f:[["jo","J.O. No.","x",1],["dJo","J.O. date","date",1],["proc","Goods / services to be procured","s",["","Not needed","Goods","Services"]],["pr","P.R. / P.O. No."],["prov","Repair done by (name / provider)"],["amt","Amount per J.O. (₱)","number"],["dStart","Date started","date"],["dDone","Date completed","date",1],["work","Work done / materials used","t"]]},
+{n:"Post-repair",t:"Stage 4 – Post-Repair Inspection",d:"Procedure 6.4.6 · end-user and Inspection Committee verify before the facility is used",f:[["dPost","Post-repair inspection date","date",1],["res","Result","s",["","Satisfactory","Not satisfactory"],1],["pf","Findings / recommendations","t"],["untag","Tag / barricade removed on","date"],["reins","Re-inspection date (if not satisfactory)","date"],["inv","Invoice No. (external repairs)"],["pay","Payable amount (₱)","number"],["postBy","Post-inspected by (Member)"],["endu","Verified by (end-user)"],["chair","Noted by (Chairman, Inspection Committee)"]]},
+{n:"Closure",t:"Stage 5 – Closure by GSS",d:"Procedure 6.4.7 · GSS Chief",f:[["dClose","Date closed","date",1],["mon","Monitoring record updated","s",["","Yes","No"]],["rec","Major or recurring defect?","s",YN],["cause","Cause identified"],["act","Action to prevent recurrence (e.g., change in the Plan, upgrade)","t"],["rem","Remarks","t"],["closeBy","Closed by (Chief, General Services Section)"]]}],
+DEF={noteBy:"DEO G. RIVERA",closeBy:"DEO G. RIVERA"},
+R=[],col=null,cur=null,step=0,msg="",ok=false,flt={q:"",s:""},ST=["New","Pre-Inspected","Under Repair","For Post-Repair","For Closure","Redo Repair","Closed"];
+var $=function(s){return document.querySelector(s)},esc=function(x){return String(x==null?"":x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var today=function(){return new Date().toISOString().slice(0,10)},dd=function(a,b){return Math.round((new Date(b)-new Date(a))/864e5)};
+function done(r,i){return S[i].f.every(function(f){return !f[f.length-1]||f[f.length-1]!==1||r[f[0]]})}
+function req(f){return f[f.length-1]===1}
+function done2(r,i){return S[i].f.every(function(f){return !req(f)||r[f[0]]})}
+function status(r){if(done2(r,4))return"Closed";if(r.res==="Not satisfactory")return"Redo Repair";if(done2(r,3)&&r.res==="Satisfactory")return"For Closure";if(done2(r,2))return"For Post-Repair";if(r.jo||r.dStart)return"Under Repair";if(done2(r,1))return"Pre-Inspected";return"New"}
+function over(r){return status(r)!=="Closed"&&r.tgt&&r.tgt<today()}
+async function save(r){var id=r.id,d=Object.assign({},r);delete d.id;if(col)await col.doc(id).set(d);else{var i=R.findIndex(function(x){return x.id===id});if(i<0)R.push(r);else R[i]=r;localStorage.setItem("rfr",JSON.stringify(R))}}
+function local(){try{R=JSON.parse(localStorage.getItem("rfr")||"[]")}catch(e){R=[]}col=null;if(!cur)render()}
+async function init(){render();try{var db=await claude.use("db");if(!db)return local();col=db.collection("requests");col.onSnapshot(function(s){R=s.docs.map(function(d){return Object.assign({id:d.id},d.data())});if(!cur)render()},local)}catch(e){local()}}
+function list(){var q=flt.q.toLowerCase(),rows=R.filter(function(r){return(!flt.s||status(r)===flt.s)&&(!q||JSON.stringify(r).toLowerCase().indexOf(q)>-1)}).sort(function(a,b){return(b.dReq||"").localeCompare(a.dReq||"")});
+return'<div class="top"><h2>Requests ('+R.length+')</h2><button class="p" id="nw">+ New Request for Repair</button></div><div class="tools"><input id="q" placeholder="Search" value="'+esc(flt.q)+'"><select id="fs"><option value="">All statuses</option>'+ST.map(function(s){return"<option"+(flt.s===s?" selected":"")+">"+s+"</option>"}).join("")+'</select></div><div class="c tb"><table><tr><th>No.</th><th>Date</th><th>Facility / area</th><th>System</th><th>Status</th><th>Target</th></tr>'
++(rows.length?rows.map(function(r){var u=r.prio==="Urgent"||r.safe==="Yes";return'<tr class="r" data-id="'+r.id+'"><td>'+esc(r.no)+"</td><td>"+esc(r.dReq)+"</td><td>"+esc(r.fac)+"<br><span class='m'>"+esc(r.area)+"</span></td><td>"+esc(r.sys)+'</td><td><span class="t">'+status(r)+"</span>"+(u?' <span class="t u">Urgent</span>':"")+(over(r)?' <span class="t o">Overdue</span>':"")+"</td><td>"+esc(r.tgt)+"</td></tr>"}).join(""):'<tr><td colspan="6" class="m">No requests yet. Start with + New Request for Repair.</td></tr>')+"</table></div>"}
+function fld(f,r){var k=f[0],t=f[2],v=r[k]!=null?r[k]:(DEF[k]||""),h='<div class="'+(t==="t"?"w":"")+'"><label>'+f[1]+(req(f)?" <i>*</i>":"")+"</label>";
+if(t==="t")h+='<textarea rows="2" data-k="'+k+'">'+esc(v)+"</textarea>";else if(t==="s")h+='<select data-k="'+k+'">'+f[3].map(function(o){return"<option"+(o===v?" selected":"")+">"+esc(o)+"</option>"}).join("")+"</select>";else h+='<input data-k="'+k+'" type="'+(t==="x"||!t?"text":t)+'" value="'+esc(v)+'">';return h+"</div>"}
+function form(){var r=cur,st=status(r);return'<div class="top"><div><h2>'+(r.no?esc(r.no):"New request")+(r.fac?" – "+esc(r.fac):"")+'</h2><span class="t">'+st+"</span></div><div><button class='s' id='pr'>Print form</button> <button class='s' id='bk'>Back to list</button></div></div>"
++'<div class="sp">'+S.map(function(s,i){return'<button data-s="'+i+'" class="'+(i===step?"on ":"")+(done2(r,i)?"ok":"")+'"><b>'+(done2(r,i)?"✓ ":"")+"STAGE "+(i+1)+"</b><span>"+s.n+"</span></button>"}).join("")+"</div>"
++S.map(function(s,i){return'<div class="pn c'+(i===step?" on":"")+'"><h3 class="pt">'+s.t+'</h3><b>'+s.t+'</b><div class="m">'+s.d+'</div><div class="f">'+s.f.map(function(f){return fld(f,r)}).join("")+"</div></div>"}).join("")
++'<div class="act"><button class="s" id="pv"'+(step?"":" disabled")+'>← Previous stage</button><button class="p" id="sv">'+(step<4?"Save & go to next stage":"Save and finish")+'</button></div><div id="msg" class="'+(ok?"ok2":"err")+'">'+esc(msg)+"</div>"}
+function render(){$("#v").innerHTML=cur?form():list()}
+function collect(){document.querySelectorAll(".pn.on [data-k]").forEach(function(i){cur[i.dataset.k]=i.value})}
+document.addEventListener("click",function(e){var b=e.target.closest("button,tr.r");if(!b)return;
+if(b.id==="nw"){cur={id:Date.now().toString(36),dReq:today()};step=0;msg="";render()}
+else if(b.classList.contains("r")){cur=Object.assign({},R.find(function(r){return r.id===b.dataset.id}));var s=0;while(s<4&&done2(cur,s))s++;step=s;msg="";render()}
+else if(b.id==="bk"){cur=null;msg="";render()}
+else if(b.id==="pr"){collect();window.print()}
+else if(b.dataset.s){collect();step=+b.dataset.s;msg="";render()}
+else if(b.id==="pv"){collect();step--;msg="";render()}
+else if(b.id==="sv"){collect();var miss=S[step].f.filter(function(f){return req(f)&&!cur[f[0]]}).map(function(f){return f[1]});
+if(miss.length){ok=false;msg="Please fill in: "+miss.join(", ");return render()}
+if(step===1){cur.postBy=cur.postBy||cur.preBy;cur.endu=cur.endu||cur.who}
+if(!cur.no){var y=(cur.dReq||today()).slice(0,4),n=R.filter(function(x){return(x.no||"").indexOf(y+"-BM-")===0}).length+1;cur.no=y+"-BM-"+("00"+n).slice(-3)}
+b.disabled=true;save(cur).then(function(){ok=true;msg="Saved "+cur.no+".";if(step<4)step++;render()}).catch(function(x){ok=false;msg="Could not save: "+(x&&x.message||x);render()})}});
+document.addEventListener("input",function(e){var t=e.target;if(t.id==="q"){flt.q=t.value;var p=t.selectionStart;render();var q=$("#q");q.focus();q.setSelectionRange(p,p)}});
+document.addEventListener("change",function(e){if(e.target.id==="fs"){flt.s=e.target.value;render()}});
+init();
+</script></body></html>
